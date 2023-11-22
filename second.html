@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+        <title>Second Page</title>
+    </head>
+    <body>
+        <header>
+            <h1>Second Page</h1>
+        </header>
+        <main>
+            <article>
+                <section>
+                    <p style="font-size: large;color:blanchedalmond;background-color: black;padding: 10px;border-radius: 10px;">Hello this is the test</p>
+                    <p>Idea of the game:</p>
+                    <p>A mans life gets simulated (everyday from the morning perspective). You have different options:</p>
+                    <ol>
+                        <li>Spend money</li>
+                        <ul>
+                            <li>Invest in Bitcoin</li>
+                            <li>Invest in Property</li>
+                            <li>Invest in Stocks</li>
+                            <li>Buy food</li>
+                            <li>Invest in Business</li>
+                            
+                        </ul>
+                        <li>How use this day?</li>
+                        <ul>
+                            <li>Work 9-5</li>
+                            <li>Work on Business</li>
+                            <li>Learn something for Business</li>
+                        </ul>
+                    </ol>
+                    
+                </section>
+                <section>
+                    <h2 style="text-align: center;font-size: xx-large;">Game</h2>
+                    <div class="container">
+                        <div class="row">
+                            <div class="left-column">
+                                <div class="top-row">
+                                    <div class="progress-container">
+                                        <label style="padding:5px;">Food</label>
+                                        <div class="progress-bar">
+                                            <div class="stage" style="width: 100%;" id="foodBarID"></div>
+                                        </div>
+                                    </div>
+                                    <div >
+                                        <p style="font-size: x-large;">Age: <b id="ageID">20</b></p>
+                                        <p style="font-size: x-large;" id="dateID">23.01.2025</p>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                <div class="bottom-row">
+                                    <div class="bottom-column">
+                                        <h3>Spend Money</h3>
+                                            <div class="single-row">
+                                                <p style="padding: 5px;">Btc</p>
+                                                <input type="number" id="btcInputID" value='0'>
+                                                <button type="submit" style="margin-left: 5px;" onclick="validateBtcInput()">Buy</button>
+                                                <p id="btcValidatorID" style="display: none;color: red;">Input is invalid</p>
+                                            </div>
+                                        <div class="single-row">
+                                            <p style="padding: 5px;">Property for 100k</p>
+                                            <input type="number" id="propertyInputID" value="0">
+                                            <button type="submit" style="margin-left: 5px;" onclick="validatePropertyInput()">Buy</button>
+                                            <p id="propertyValidatorID" style="display: none;color: red;">Input is invalid</p>
+                                        </div>
+                                        <div class="single-row">
+                                            <p style="padding: 5px;">Stocks</p>
+                                            <input type="number" id="stocksInputID" value="0">
+                                            <button type="submit" style="margin-left: 5px;" onclick="validateStocksInput()">Buy</button>
+                                            <p id="stocksValidatorID" style="display: none;color: red;">Input is invalid</p>
+                                        </div>
+                                        <div class="single-row">
+                                            <p style="padding: 5px;">Invest in Business</p>
+                                            <input type="number" id="investBusinessInputID" value="0">
+                                            <button type="submit" style="margin-left: 5px;" onclick="validateInvestBusinessInput()">Buy</button>
+                                            <p id="investBusinessValidatorID" style="display: none;color: red;">Input is invalid</p>
+                                        </div>
+                                        <div class="single-row">
+                                            <p style="padding: 5px;">Buy food for 14 Dollars</p>
+                                            <button type="submit" style="margin-left: 5px;" onclick="buyFood()">Buy</button>
+                                        </div>
+                                    </div>
+                                    <div class="bottom-column">
+                                        <h3>Use of today</h3>
+                                        <div class="single-row"><button id="yesButton" class="hidden" onclick="deadMessage()">Yes</button>
+                                            <button id="cancelButton" class="hidden" onclick="closeDialog()">Cancel</button></div>
+                                        <div class="single-row">
+                                            <p style="padding: 5px;">Work 9-5</p>
+                                            <button style="color: green;font-size: large;" onclick="nineToFiveOption()"><span id="nineToFiveID">15</span> Dollar</button>
+                                        </div>
+                                        <div class="single-row">
+                                            <p style="padding: 5px;">Work Business</p>
+                                            <button style="color: green;font-size: large;" onclick="workBusinessOption()"><span id="workBusinessID">0.01</span> Dollar</button>
+                                        </div>
+                                        <div class="single-row">
+                                            <p style="padding: 5px;">Learn for Business</p>
+                                            <button style="color: green;font-size: large;" onclick="learnBusinessOption()" id="incrementBusinessEarningsID">+ 5% Businessearnings</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-column">
+                                <h3>My money</h3>
+                                <div class="single-row">
+                                    <p style="padding: 5px;">Networth</p>
+                                    <p class="money-behinds">$ <span id="networthCountID">0</span></p>
+                                </div>
+                                <div class="single-row">
+                                    <p style="padding: 5px;">Bank</p>
+                                    <p class="money-behinds">$ <span id="bankCountID">0</span></p>
+                                </div>
+                                <div class="single-row">
+                                    <p style="padding: 5px;">Btc</p>
+                                    <p class="money-behinds">$ <span id="btcCountID">0</span></p>
+                                </div>
+                                <div class="single-row">
+                                    <p style="padding: 5px;">Stocks</p>
+                                    <p class="money-behinds">$ <span id="stocksCountID">0</span></p>
+                                </div>
+                                <div class="single-row">
+                                    <p style="padding: 5px;">Property</p>
+                                    <p class="money-behinds">$ <span id="propertyMoneyCountID">0</span></p>
+                                    <p style="padding: 5px;">Number:</p>
+                                    <p class="money-behinds"> <span id="propertyCountID">0</span></p>
+                                </div>
+                                <br>
+                                <div class="single-row">
+                                    <p style="padding: 5px;">Sell</p>
+                                    <select name="sellName" id="sellAssetsID">
+                                        <option value="btcValue">Btc</option>
+                                        <option value="stocksValue">Stocks</option>
+                                        <option value="propertyValue">Property</option>
+                                    </select>
+                                    <p style="padding: 5px;">Money or Number:</p>
+                                    <input type="number" id="sellMoneyInputID" value="0">
+                                    <button type="submit" style="margin: 5px;" onclick="sellAsset()">Sell</button>
+                                    <p id="sellAssetValidatorID" style="display: none;color: red;">Input is invalid</p>
+                                </div>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </main>
+    </body>
+    <script src="/script.js"></script>
+</html>
